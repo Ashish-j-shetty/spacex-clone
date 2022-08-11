@@ -220,6 +220,8 @@ section {
   background-color: var(--white);
   top: 0;
   left: 0;
+
+  transition: all 0.5s;
 }
 
 .hamburger-middle {
@@ -248,6 +250,80 @@ section {
   transform: rotate(-45deg) translateX(-6px) translateY(6px);
 }
 
+/* overlay */
+.overlay-show {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--black);
+  opacity: 0.5;
+  z-index: 3;
+}
+
+/* stop body scroll */
+
+.stop-scrolling {
+  overflow: hidden;
+}
+
+/* hide mobile main  items */
+
+.mobile-only {
+  display: none;
+}
+
+/* mobile menu */
+.mobile-main-menu {
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 350px;
+  z-index: 4;
+  background: var(--black);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transform: translateX(100%);
+  transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+/* bring menu out */
+.show-menu {
+  transform: translateX(0);
+}
+
+.mobile-main-menu ul {
+  display: flex;
+  flex-direction: column;
+  padding: 50px;
+  align-items: end;
+  justify-content: start;
+  width: 100%;
+}
+
+.mobile-main-menu ul li {
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  font-size: 18px;
+  border-bottom: 1px var(--grey) dotted;
+  width: 100%;
+  text-align: right;
+  padding-bottom: 8px;
+  cursor: pointer;
+}
+
+.mobile-main-menu ul li a {
+  color: var(--white);
+  transition: color 0.6s;
+}
+
+.mobile-main-menu ul li a:hover {
+  color: var(--grey);
+}
 /* Animations */
 
 @keyframes fadeInUp {
@@ -315,6 +391,11 @@ footer ul li a:hover {
   /* hide desktop menu */
   .desktop-main-menu {
     display: none;
+  }
+
+  /* show mobile menu */
+  .mobile-only {
+    display: block;
   }
 }
 
